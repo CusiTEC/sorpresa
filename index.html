@@ -55,7 +55,9 @@ body{
 <body>
 
 <div id="inicio">
-    <button onclick="entrar()">▶ Reproducir música</button>
+    <audio id="bgmusic" loop>
+        <source src="Sub.Español.mp3" type="audio/mpeg">
+    </audio>
 </div>
 
 <div id="contenido">
@@ -71,12 +73,10 @@ body{
 
 <script>
 function entrar() {
-
-    document.getElementById("musica").src =
-        "https://drive.google.com/file/d/1eI2HX2kcO2wYQ7YKEGxlzsxGSQ_ynn6f/preview";
+    const audio = document.getElementById("bgmusic");
+    audio.play();
 
     document.getElementById("inicio").style.display = "none";
-    document.getElementById("contenido").style.display = "block";
 }
 </script>
 
