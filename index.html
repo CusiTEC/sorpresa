@@ -2,15 +2,21 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mi Página</title>
 
 <style>
-body{
+*{
     margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
     background:#111;
-    color:#fff;
-    font-family:Arial,sans-serif;
+    color:white;
+    overflow:hidden;
 }
 
 /* Pantalla inicial */
@@ -21,7 +27,13 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
+    flex-direction:column;
     z-index:9999;
+}
+
+#inicio h1{
+    margin-bottom:30px;
+    font-size:40px;
 }
 
 #inicio button{
@@ -31,53 +43,61 @@ body{
     border-radius:10px;
     cursor:pointer;
     background:#ff4081;
-    color:#fff;
+    color:white;
+}
+
+#inicio button:hover{
+    background:#ff0066;
 }
 
 /* Contenido */
 #contenido{
     display:none;
-    text-align:center;
-    padding-top:80px;
+    width:100vw;
+    height:100vh;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
 }
 
-/* Reproductor */
-#musica{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    width:320px;
-    height:80px;
-    border:none;
+h2{
+    font-size:50px;
 }
 </style>
+
 </head>
 <body>
 
 <div id="inicio">
-    <audio id="bgmusic" loop>
-        <source src="Sub.Español.mp3" type="audio/mpeg">
-    </audio>
+    <h1>🎵 Bienvenido 🎵</h1>
+    <button onclick="entrar()">Entrar</button>
 </div>
 
 <div id="contenido">
-    <h1>Bienvenido</h1>
-    <p>La música se está reproduciendo.</p>
-
-    <iframe
-        id="musica"
-        src=""
-        allow="autoplay">
-    </iframe>
+    <h2>Mi Página</h2>
+    <p>La música se está reproduciendo de fondo.</p>
 </div>
 
+<audio id="musica" loop>
+    <source src="Sub.Español.mp3" type="audio/mpeg">
+</audio>
+
 <script>
-function entrar() {
-    const audio = document.getElementById("bgmusic");
+
+function entrar(){
+
+    const audio=document.getElementById("musica");
+
+    audio.volume=0.4;
+
     audio.play();
 
-    document.getElementById("inicio").style.display = "none";
+    document.getElementById("inicio").style.display="none";
+
+    document.getElementById("contenido").style.display="flex";
+
 }
+
 </script>
 
 </body>
