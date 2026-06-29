@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mi Página</title>
+
+<style>
+body{
+    margin:0;
+    background:#111;
+    color:#fff;
+    font-family:Arial,sans-serif;
+}
+
+/* Pantalla inicial */
+#inicio{
+    position:fixed;
+    inset:0;
+    background:#000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+#inicio button{
+    padding:18px 40px;
+    font-size:24px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    background:#ff4081;
+    color:#fff;
+}
+
+/* Contenido */
+#contenido{
+    display:none;
+    text-align:center;
+    padding-top:80px;
+}
+
+/* Reproductor */
+#musica{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    width:320px;
+    height:80px;
+    border:none;
+}
+</style>
+</head>
+<body>
+
+<div id="inicio">
+    <button onclick="entrar()">▶ Reproducir música</button>
+</div>
+
+<div id="contenido">
+    <h1>Bienvenido</h1>
+    <p>La música se está reproduciendo.</p>
+
+    <iframe
+        id="musica"
+        src=""
+        allow="autoplay">
+    </iframe>
+</div>
+
+<script>
+function entrar() {
+
+    document.getElementById("musica").src =
+        "https://drive.google.com/file/d/1eI2HX2kcO2wYQ7YKEGxlzsxGSQ_ynn6f/preview";
+
+    document.getElementById("inicio").style.display = "none";
+    document.getElementById("contenido").style.display = "block";
+}
+</script>
+
+</body>
+</html>
